@@ -7,7 +7,7 @@ public class quizFrame {
 		JFrame init = new JFrame("default");
 		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		init.setTitle(s);
-		init.add(null);
+		init.add(null, null);
 		
 		
 		init.pack();
@@ -16,4 +16,15 @@ public class quizFrame {
 		
 	
 	}
+	public void components(){
+	//init set up	
+		//Start button 
+		JButton(Start);
+		
+		
+		//text fields for writing the init text
+		JTextField(null);
+		
+		
+	}	
 }
