@@ -3,7 +3,8 @@ package quizProject;
 
 
 public class bin{
- quizFrame.quizFrame("Name");
+	public static void main(){
+ quizFrame quizFrame = new quizFrame("Name");
 
 
 
@@ -17,5 +18,5 @@ public class bin{
 
 
 
-
+	}
 }
