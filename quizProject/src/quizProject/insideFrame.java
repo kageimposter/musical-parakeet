@@ -8,14 +8,14 @@ import javax.swing.JPanel;
 
 public class insideFrame extends JPanel{
 	public insideFrame(Graphics g){
-	private Color intor = Color.WHITE;
+		Color intor = Color.WHITE;
+	this.setBackground(intor);
 	
-	g.drawImage(img, x, y, w, h, observer);
-	g.setColor(intor);
-	g.fillRect(100, 100, 500, 500);
 	
 		
 		
 	}
-	
+
+
+
 }
