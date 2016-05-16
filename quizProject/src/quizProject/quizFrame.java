@@ -4,7 +4,6 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.WindowAdapter;
 
 import javax.swing.*;
 
@@ -29,7 +28,7 @@ public class quizFrame extends JFrame{
 		super.setLayout(new GridLayout(0, 2));
 		
 		
-		//Buttons
+		//Buttons with text
 		JButton b1 = new JButton("1");
 		 JButton b2 = new JButton("2");
 		 JButton b3 = new JButton("3");
@@ -43,6 +42,8 @@ public class quizFrame extends JFrame{
 		    super.add(b4);
 		    super.add(b5);
 		    super.add(b6);
+		    
+		    
 		//pack up the window and display it
 		init.pack();
 		init.setLocationRelativeTo(null);
