@@ -6,36 +6,30 @@ import java.awt.event.WindowAdapter;
 
 import javax.swing.*;
 
-public class quizFrame {
-
-	public quizFrame(String s){
+public class quizFrame extends JFrame{
+	private Toolkit ig = Toolkit.getDefaultToolkit();
+	private Dimension size  = ig.getScreenSize();
 	
-		//Title and size
-		private Toolkit ig = Toolkit.getDefaultToolkit();
-		Image tittleicon = ig.getImage(null);
-		private Dimension size  = ig.getScreenSize();
-		
+	public quizFrame(String s, String i){
 		
 		//start the window
 		JFrame init = new JFrame("default");
 		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		init.setTitle(s);
-		init.setIconImage(null);
+		Image tittleIcon = ig.getImage(i);
+		init.setIconImage(tittleIcon);
+		init.setSize(size.width/2,size.height/2);
 		
-		
-		
-		// for later
-		//init.addWindowListener(new WindowAdapter());
 		
 		//fill the window with a useable panel space
-		JPanel inhere = new JPanel();
-		inhere.setSize(300, 300);
+		JPanel insideframe = new insideFrame(null);
+		JPanel buttons = new buttons();
 		
 		
 		//pack up the window and display it
 		init.pack();
 		init.setLocationRelativeTo(null);
-		init.setVisible(true);
+		
 		
 	
 	}

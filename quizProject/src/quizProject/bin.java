@@ -3,20 +3,8 @@ package quizProject;
 
 
 public class bin{
-	public static void main(){
- quizFrame quizFrame = new quizFrame("Name");
-
-
-
-
-
-
-
-
-
-
-
-
-
+	public void main(){
+ quizFrame quizFrame = new quizFrame("Name", "src" + System.getProperty("file.separator") + "crest1.png");
+ quizFrame.setVisible(true);
 	}
 }
