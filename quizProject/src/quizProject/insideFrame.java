@@ -8,8 +8,9 @@ import javax.swing.JPanel;
 
 public class insideFrame extends JPanel{
 	public insideFrame(Graphics g){
-		Color intor = Color.WHITE;
+		Color intor = Color.black;
 	this.setBackground(intor);
+	super.setPreferredSize(getMaximumSize());
 	
 	
 		
