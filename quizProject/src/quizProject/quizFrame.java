@@ -33,7 +33,8 @@ public class quizFrame extends JFrame{
 	  	
 	    Box text = Box.createVerticalBox();
 	    //the text for the questions
-	    
+	    JTextArea question = new JTextArea(5,10);
+	    question.setEditable(false);
 	    
 	    
 	    //buttons with options
