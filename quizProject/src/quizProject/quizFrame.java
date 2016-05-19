@@ -16,44 +16,58 @@ import javax.swing.JRadioButton;
 import javax.swing.*;
 
 public class quizFrame extends JFrame{
-	// Toolkit ig = Toolkit.getDefaultToolkit();
+	Toolkit ig = Toolkit.getDefaultToolkit();
 	
 	
 	public quizFrame(String s){
 		
-		//start the window
+//start the window
 		JFrame init = new JFrame("default");
 		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		init.setTitle(s);
 		init.setBounds(40,40,400,400);
-		//Image tittleIcon = ig.getImage(i);
-		//init.setIconImage(tittleIcon)
+		//Image tittleIcon = ig.getImage();
+		//init.setIconImage(tittleIcon);
 		
-		//Buttons with text
-	  	// add buttons to side
+	//Buttons with text
+	  	
 	    Box text = Box.createVerticalBox();
+	    //the text for the questions
+	    
+	    
+	    
+	    //buttons with options
 	    text.add(new JCheckBox("A"));
 	    text.add(new JCheckBox("B"));
 	    text.add(new JCheckBox("C"));
 	    text.add(new JCheckBox("d"));
 	    text.add(new JCheckBox("e"));
+	  
+	    //next screen button
 	    text.add(new JButton("Next Question"));
+	
+	 //another container to display objects side by side
+	    //Box top = Box.createHorizontalBox();
+	    //top.add(text);
+	    //   top.add(comp)
+	  
+	//set up the container for everything
 	    
-	    //the top container
-	    Box top = Box.createHorizontalBox();
-	    top.add(text);
-	 //   top.add(comp)
 	    Container content = init.getContentPane();
 	    content.setLayout(new BorderLayout());
-	    content.add(top, BorderLayout.CENTER);
+	    content.add(text, BorderLayout.CENTER);
+	    content.setBackground(null);
 	    
-		//set window location  and display it	
+	//set window location  and display it	
 		    init.setLocationRelativeTo(null);
 		init.setVisible(true);
 		
 	
 			}
 	public static void strings(){
+		
+		
+		
 		
 	}
 }
