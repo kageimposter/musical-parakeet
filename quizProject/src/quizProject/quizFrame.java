@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Graphics;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -18,12 +17,11 @@ import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
-import javax.swing.JRadioButton;
-
 import javax.swing.*;
 
 public class quizFrame extends JFrame implements ActionListener{
 	Toolkit ig = Toolkit.getDefaultToolkit();
+	int section = 0;
 	
 	
 	public quizFrame(String s){
@@ -35,7 +33,7 @@ public class quizFrame extends JFrame implements ActionListener{
 		init.setBounds(40,40,400,400);
 		//Image tittleIcon = ig.getImage();
 		//init.setIconImage(tittleIcon);
-		int section = 0;
+		
 		
 		
 //get strings
@@ -80,46 +78,52 @@ public class quizFrame extends JFrame implements ActionListener{
 	    
 	    
 
-	    //buttons with options
-	    
-	    
-	   
-	   JCheckBox Gryp = new JCheckBox(new AbstractAction("add"){
+	    //buttons with options   
+	   JCheckBox Gryp = new JCheckBox(new AbstractAction(Gryphondor[section]){
 		   @Override
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
+			   endValues.Gryphondor();
 	        }
 	   });
-	   JCheckBox Raven = new JCheckBox(new AbstractAction("add"){
+	   JCheckBox Raven = new JCheckBox(new AbstractAction(RavenClaw[section]){
 		   @Override
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
+			   endValues.RavenClaw();
+		   
+		   }
+	   });
+	   JCheckBox Snake = new JCheckBox(new AbstractAction(Slyterin[section]){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+			   endValues.Slytherin();
 	        }
 	   });
-	   JCheckBox Snake = new JCheckBox(new AbstractAction("add"){
+	   JCheckBox Bagger = new JCheckBox(new AbstractAction(HonneyBadger[section]){
 		   @Override
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
+			   endValues.HonneyBagger();
 	        }
 	   });
-	   JCheckBox Bagger = new JCheckBox(new AbstractAction("add"){
+	   JCheckBox VarAll = new JCheckBox(new AbstractAction(Variates[section]){
 		   @Override
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
-	        }
-	   });
-	   JCheckBox VarAll = new JCheckBox(new AbstractAction("add"){
-		   @Override
-	        public void actionPerformed( ActionEvent e ) {
-	            // add Action
+			   endValues.Variants();
+			   
 	        }
 	   });
 	  
 	    //next screen button
-	    JButton NextScreen = new JButton(new AbstractAction("add"){
+	    JButton NextScreen = new JButton(new AbstractAction("Next Question"){
 			   @Override
 		        public void actionPerformed( ActionEvent e ) {
-		            // add Action
+		            // hit the next section
+				   section++;
+				   quizFrame.RepaintFrame();
 		        }
 		   });
 	    
@@ -131,27 +135,14 @@ public class quizFrame extends JFrame implements ActionListener{
 	    text.add(VarAll);
 	    text.add(NextScreen);
 	    
-	    //set names for the buttons
-	    Gryp.setName(Gryphondor[section]);
-	    Raven.setName(RavenClaw[section]);
-	    Snake.setName(Slyterin[section]);
-	    Bagger.setName(HonneyBadger[section]);
-	    VarAll.setName(Variates[section]);
-	    NextScreen.setName("Next Question");
-	    
-	    
-	    
-	    
-	    
-	 //another container to display objects side by side
-	    //Box top = Box.createHorizontalBox();
-	    //top.add(text);
-	    //   top.add(comp)
 	  
+	    
+	
 	//set up the container for everything
 	    
 	    Container content = init.getContentPane();
 	    content.setLayout(new BorderLayout());
+	    content.add(question, BorderLayout.PAGE_START );
 	    content.add(text, BorderLayout.CENTER);
 	    content.setBackground(null);
 	    
@@ -168,6 +159,11 @@ public class quizFrame extends JFrame implements ActionListener{
 		// TODO Auto-generated method stub
 		
 	}
+	public void RepaintFrame(){
+		quizFrame.text.repaint();
+		
+	}
+
 		
 }
 
