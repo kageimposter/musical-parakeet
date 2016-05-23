@@ -2,9 +2,16 @@ package quizProject;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.FontFormatException;
 import java.awt.Graphics;
+import java.awt.GraphicsEnvironment;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import javax.swing.Box;
@@ -15,7 +22,7 @@ import javax.swing.JRadioButton;
 
 import javax.swing.*;
 
-public class quizFrame extends JFrame{
+public class quizFrame extends JFrame implements ActionListener{
 	Toolkit ig = Toolkit.getDefaultToolkit();
 	
 	
@@ -58,24 +65,84 @@ public class quizFrame extends JFrame{
 	    //the text for the questions
 	    JTextArea question = new JTextArea(Questions[section]);
 	    question.setEditable(false);
-	   
-	    
-	    // question.setFont(f);
+	  
+	//set the fonts 
+	    Font font;
+			try {
+				font = Font.createFont(Font.TRUETYPE_FONT, new File("Akula.ttf")).deriveFont(12f);
+			} catch (FontFormatException | IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	//    question.setFont(font);
 	    question.setLineWrap(true);
 	    question.setWrapStyleWord(true);
 	    
 	    
 
 	    //buttons with options
-	    text.add(new JCheckBox(Gryphondor[section]));
-	    text.add(new JCheckBox(RavenClaw[section]));
-	    text.add(new JCheckBox(Slyterin[section]));
-	    text.add(new JCheckBox(HonneyBadger[section]));
-	    text.add(new JCheckBox(Variates[section]));
+	    
+	    
+	   
+	   JCheckBox Gryp = new JCheckBox(new AbstractAction("add"){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+	        }
+	   });
+	   JCheckBox Raven = new JCheckBox(new AbstractAction("add"){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+	        }
+	   });
+	   JCheckBox Snake = new JCheckBox(new AbstractAction("add"){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+	        }
+	   });
+	   JCheckBox Bagger = new JCheckBox(new AbstractAction("add"){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+	        }
+	   });
+	   JCheckBox VarAll = new JCheckBox(new AbstractAction("add"){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+	        }
+	   });
 	  
 	    //next screen button
-	    text.add(new JButton("Next Question"));
-	
+	    JButton NextScreen = new JButton(new AbstractAction("add"){
+			   @Override
+		        public void actionPerformed( ActionEvent e ) {
+		            // add Action
+		        }
+		   });
+	    
+	    //Add the buttons to the space
+	    text.add(Gryp);
+	    text.add(Raven);
+	    text.add(Snake);
+	    text.add(Bagger);
+	    text.add(VarAll);
+	    text.add(NextScreen);
+	    
+	    //set names for the buttons
+	    Gryp.setName(Gryphondor[section]);
+	    Raven.setName(RavenClaw[section]);
+	    Snake.setName(Slyterin[section]);
+	    Bagger.setName(HonneyBadger[section]);
+	    VarAll.setName(Variates[section]);
+	    NextScreen.setName("Next Question");
+	    
+	    
+	    
+	    
+	    
 	 //another container to display objects side by side
 	    //Box top = Box.createHorizontalBox();
 	    //top.add(text);
@@ -94,8 +161,13 @@ public class quizFrame extends JFrame{
 		
 	
 			}
-	
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
 		
+	}
 		
 }
 

@@ -1,6 +1,5 @@
 package quizProject;
 
-import java.awt.Window;
 
 public class bin{
 	public static void main(String[] args){

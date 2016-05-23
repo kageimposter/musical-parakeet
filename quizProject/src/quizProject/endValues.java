@@ -1,5 +1,8 @@
 package quizProject;
 
-public class endValues {
 
+public class endValues {
+	
+	
+	
 }
