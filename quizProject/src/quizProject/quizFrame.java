@@ -38,7 +38,7 @@ public class quizFrame extends JFrame implements ActionListener{
 		
 //get strings
 				String[] Questions = new String[10];
-				Questions[0] = "q";Questions[1] = "q";Questions[2] = "q";Questions[3] = "q";Questions[4] = "q";Questions[5] = "q";Questions[6] = "q";Questions[7] = "q";Questions[8] = "q";Questions[9] = "q";
+				Questions[0] = "q";Questions[1] = "q2";Questions[2] = "q3";Questions[3] = "q4";Questions[4] = "q";Questions[5] = "q";Questions[6] = "q";Questions[7] = "q";Questions[8] = "q";Questions[9] = "q";
 	
 				String[] Gryphondor = new String[10];
 				String[] RavenClaw = new String[10];
@@ -118,14 +118,7 @@ public class quizFrame extends JFrame implements ActionListener{
 	   });
 	  
 	    //next screen button
-	    JButton NextScreen = new JButton(new AbstractAction("Next Question"){
-			   @Override
-		        public void actionPerformed( ActionEvent e ) {
-		            // hit the next section
-				   section++;
-				   quizFrame.RepaintFrame();
-		        }
-		   });
+	    JButton NextScreen = new JButton("Next Question");
 	    
 	    //Add the buttons to the space
 	    text.add(Gryp);
@@ -135,7 +128,7 @@ public class quizFrame extends JFrame implements ActionListener{
 	    text.add(VarAll);
 	    text.add(NextScreen);
 	    
-	  
+	  NextScreen.addActionListener(this);
 	    
 	
 	//set up the container for everything
@@ -157,12 +150,13 @@ public class quizFrame extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		section++;	
+		
+		super.repaint();
+		
 		
 	}
-	public void RepaintFrame(){
-		quizFrame.text.repaint();
-		
-	}
+	
 
 		
 }
