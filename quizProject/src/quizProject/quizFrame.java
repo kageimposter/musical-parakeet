@@ -19,21 +19,26 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.*;
 
-public class quizFrame extends JFrame implements ActionListener{
-	Toolkit ig = Toolkit.getDefaultToolkit();
-	int section = 0;
+public class quizFrame implements ActionListener{
 	
+	Toolkit ig = Toolkit.getDefaultToolkit();
+	
+	
+	
+	JFrame init = new JFrame("default"){
+		public void paint(Graphics g) {System.out.println("repaint");};
+	};
 	
 	public quizFrame(String s){
 		
 //start the window
-		JFrame init = new JFrame("default");
+		
 		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		init.setTitle(s);
 		init.setBounds(40,40,400,400);
 		//Image tittleIcon = ig.getImage();
 		//init.setIconImage(tittleIcon);
-		
+		int section = 0;
 		
 		
 //get strings
@@ -79,44 +84,11 @@ public class quizFrame extends JFrame implements ActionListener{
 	    
 
 	    //buttons with options   
-	   JCheckBox Gryp = new JCheckBox(new AbstractAction(Gryphondor[section]){
-		   @Override
-	        public void actionPerformed( ActionEvent e ) {
-	            // add Action
-			   endValues.Gryphondor();
-	        }
-	   });
-	   JCheckBox Raven = new JCheckBox(new AbstractAction(RavenClaw[section]){
-		   @Override
-	        public void actionPerformed( ActionEvent e ) {
-	            // add Action
-			   endValues.RavenClaw();
-		   
-		   }
-	   });
-	   JCheckBox Snake = new JCheckBox(new AbstractAction(Slyterin[section]){
-		   @Override
-	        public void actionPerformed( ActionEvent e ) {
-	            // add Action
-			   endValues.Slytherin();
-	        }
-	   });
-	   JCheckBox Bagger = new JCheckBox(new AbstractAction(HonneyBadger[section]){
-		   @Override
-	        public void actionPerformed( ActionEvent e ) {
-	            // add Action
-			   endValues.HonneyBagger();
-	        }
-	   });
-	   JCheckBox VarAll = new JCheckBox(new AbstractAction(Variates[section]){
-		   @Override
-	        public void actionPerformed( ActionEvent e ) {
-	            // add Action
-			   endValues.Variants();
-			   
-	        }
-	   });
-	  
+	   JCheckBox Gryp = new JCheckBox(Gryphondor[section]);
+	   JCheckBox Raven = new JCheckBox(RavenClaw[section]);
+	   JCheckBox Snake = new JCheckBox(Slyterin[section]);
+	   JCheckBox Bagger = new JCheckBox(HonneyBadger[section]);
+	   JCheckBox VarAll = new JCheckBox(Variates[section]);
 	    //next screen button
 	    JButton NextScreen = new JButton("Next Question");
 	    
@@ -128,12 +100,72 @@ public class quizFrame extends JFrame implements ActionListener{
 	    text.add(VarAll);
 	    text.add(NextScreen);
 	    
-	  NextScreen.addActionListener(this);
+	    
+	    //add the listeners
+	    Gryp.addActionListener(new ActionListener(){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+			   endValues.Gryphondor();
+	        }
+	   });
+	    
+	    Raven.addActionListener(new ActionListener(){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+			   endValues.RavenClaw();
+		   
+		   }
+	   });
+	    
+	    Snake.addActionListener(new ActionListener(){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+			   endValues.Slytherin();
+	        }
+	   });
+	    
+	    Bagger.addActionListener(new ActionListener(){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+			   endValues.HonneyBagger();
+	        }
+	   });
+	    
+	    VarAll.addActionListener(new ActionListener(){
+		   @Override
+	        public void actionPerformed( ActionEvent e ) {
+	            // add Action
+			   endValues.Variants();
+			   
+	        }
+	   });
+	    
+	  NextScreen.addActionListener(new ActionListener(){
+			  
+			  public void actionPerformed(ActionEvent e) {
+			section = section +1;	
+			init.repaint();
+			
+			/**if(e.getSource() instanceof JButton)
+			{
+				
+				JButton button = (JButton) e.getSource();
+				System.out.println("trying to repaint");
+				button.getParent().getParent().repaint();
+				
+		}**/
+			}
+			  }	);
 	    
 	
 	//set up the container for everything
 	    
-	    Container content = init.getContentPane();
+	    Container content = new Container();
+	    init.add(content);
 	    content.setLayout(new BorderLayout());
 	    content.add(question, BorderLayout.PAGE_START );
 	    content.add(text, BorderLayout.CENTER);
@@ -146,16 +178,16 @@ public class quizFrame extends JFrame implements ActionListener{
 	
 			}
 
-
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		section++;	
-		
-		super.repaint();
-		
 		
 	}
+
+
+	
+		
+	
 	
 
 		
