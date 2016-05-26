@@ -25,14 +25,14 @@ public class quizFrame implements ActionListener{
 	
 	
 	
-	JFrame init = new JFrame("default"){
-		public void paint(Graphics g) {System.out.println("repaint");};
-	};
+	
 	
 	public quizFrame(String s){
 		
 //start the window
-		
+		JFrame init = new JFrame("default"){
+			public void paint(Graphics g) {System.out.println("repaint");};
+		};	
 		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		init.setTitle(s);
 		init.setBounds(40,40,400,400);
@@ -42,12 +42,16 @@ public class quizFrame implements ActionListener{
 		
 		
 //get strings
+		
+		 Box questext = Box.createVerticalBox();
+		  
+		
 				String[] Questions = new String[10];
 				Questions[0] = "q";Questions[1] = "q2";Questions[2] = "q3";Questions[3] = "q4";Questions[4] = "q";Questions[5] = "q";Questions[6] = "q";Questions[7] = "q";Questions[8] = "q";Questions[9] = "q";
 	
 				String[] Gryphondor = new String[10];
 				String[] RavenClaw = new String[10];
-				String[] Slyterin = new String[10];
+				String[] Slytherin = new String[10];
 				String[] HonneyBadger = new String[10];
 				String[] Variates = new String[10];
 				
@@ -55,13 +59,32 @@ public class quizFrame implements ActionListener{
 
 				RavenClaw[0] = "A2";RavenClaw[1] = "A2";RavenClaw[2] = "A2";RavenClaw[3] = "A2";RavenClaw[4] = "A2";RavenClaw[5] = "A2";RavenClaw[6] = "A2";RavenClaw[7] = "A2";RavenClaw[8] = "A2";RavenClaw[9] = "A2";
 
-				Slyterin[0] = "A3";Slyterin[1] = "A3";Slyterin[2] = "A3";Slyterin[3] = "A3";Slyterin[4] = "A3";Slyterin[5] = "A3";Slyterin[6] = "A3";Slyterin[7] = "A3";Slyterin[8] = "A3";Slyterin[9] = "A3";
+				Slytherin[0] = "A3";Slytherin[1] = "A3";Slytherin[2] = "A3";Slytherin[3] = "A3";Slytherin[4] = "A3";Slytherin[5] = "A3";Slytherin[6] = "A3";Slytherin[7] = "A3";Slytherin[8] = "A3";Slytherin[9] = "A3";
 				
 				HonneyBadger[0] = "A4";HonneyBadger[1] = "A4";HonneyBadger[2] = "A4";HonneyBadger[3] = "A4";HonneyBadger[4] = "A4";HonneyBadger[5] = "A4";HonneyBadger[6] = "A4";HonneyBadger[7] = "A4";HonneyBadger[8] = "A4";HonneyBadger[9] = "A4";
 				
 				Variates[0] = "A5";Variates[1] = "A5";Variates[2] = "A5";Variates[3] = "A5";Variates[5] = "A5";Variates[6] = "A5";Variates[7] = "A5";Variates[8] = "A5";Variates[9] = "A5";
+			
+				  //the text for the questions
+			    JTextArea G1 = new JTextArea(Gryphondor[section]);
+			    G1.setEditable(false);
+				JTextArea R1 = new JTextArea(RavenClaw[section]);
+				R1.setEditable(false);
+				JTextArea S1 = new JTextArea(Slytherin[section]);
+				S1.setEditable(false);
+				JTextArea H1 = new JTextArea(HonneyBadger[section]);
+				H1.setEditable(false);
+				JTextArea V1 = new JTextArea(Variates[section]);
+				V1.setEditable(false);
+				   
+				questext.add(G1);
+				questext.add(R1);
+				questext.add(S1);
+				questext.add(H1);
+				questext.add(V1);
 				
-	
+				
+				
 	//Buttons with text
 	  	
 	    Box text = Box.createVerticalBox();
@@ -84,11 +107,11 @@ public class quizFrame implements ActionListener{
 	    
 
 	    //buttons with options   
-	   JCheckBox Gryp = new JCheckBox(Gryphondor[section]);
-	   JCheckBox Raven = new JCheckBox(RavenClaw[section]);
-	   JCheckBox Snake = new JCheckBox(Slyterin[section]);
-	   JCheckBox Bagger = new JCheckBox(HonneyBadger[section]);
-	   JCheckBox VarAll = new JCheckBox(Variates[section]);
+	   JCheckBox Gryp = new JCheckBox("1");
+	   JCheckBox Raven = new JCheckBox("2");
+	   JCheckBox Snake = new JCheckBox("3");
+	   JCheckBox Bagger = new JCheckBox("4");
+	   JCheckBox VarAll = new JCheckBox("5");
 	    //next screen button
 	    JButton NextScreen = new JButton("Next Question");
 	    
@@ -147,17 +170,15 @@ public class quizFrame implements ActionListener{
 	  NextScreen.addActionListener(new ActionListener(){
 			  
 			  public void actionPerformed(ActionEvent e) {
-			section = section +1;	
-			init.repaint();
 			
-			/**if(e.getSource() instanceof JButton)
+			if(e.getSource() instanceof JButton)
 			{
 				
 				JButton button = (JButton) e.getSource();
 				System.out.println("trying to repaint");
 				button.getParent().getParent().repaint();
 				
-		}**/
+		}
 			}
 			  }	);
 	    
