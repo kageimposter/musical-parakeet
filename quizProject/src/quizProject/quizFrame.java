@@ -34,7 +34,7 @@ public class quizFrame implements ActionListener{
 		int section = 0;
 		
 		
-//get strings
+			//get strings
 		
 		 Box questext = Box.createVerticalBox();
 		  
@@ -48,27 +48,41 @@ public class quizFrame implements ActionListener{
 				String[] HonneyBadger = new String[10];
 				String[] Variates = new String[10];
 				
-				Gryphondor[0] = "1.Do you believe in glory above all?";Gryphondor[1] = "A1";Gryphondor[2] = "A1";Gryphondor[3] = "A1";Gryphondor[4] = "A1";Gryphondor[5] = "A1";Gryphondor[6] = "A1";Gryphondor[7] = "A1";Gryphondor[8] = "A1";Gryphondor[9] = "A1";
+				Gryphondor[0] = "1.Do you believe in glory and the seeking of it above all?";Gryphondor[1] = "A1";Gryphondor[2] = "A1";Gryphondor[3] = "A1";Gryphondor[4] = "A1";Gryphondor[5] = "A1";Gryphondor[6] = "A1";Gryphondor[7] = "A1";Gryphondor[8] = "A1";Gryphondor[9] = "A1";
 
-				RavenClaw[0] = "2.Do you believe in knowladge above all?";RavenClaw[1] = "A2";RavenClaw[2] = "A2";RavenClaw[3] = "A2";RavenClaw[4] = "A2";RavenClaw[5] = "A2";RavenClaw[6] = "A2";RavenClaw[7] = "A2";RavenClaw[8] = "A2";RavenClaw[9] = "A2";
+				RavenClaw[0] = "2.Do you believe in knowladge and the accumulation of it above all?";RavenClaw[1] = "A2";RavenClaw[2] = "A2";RavenClaw[3] = "A2";RavenClaw[4] = "A2";RavenClaw[5] = "A2";RavenClaw[6] = "A2";RavenClaw[7] = "A2";RavenClaw[8] = "A2";RavenClaw[9] = "A2";
 
-				Slytherin[0] = "3.Do you believe in efficency above all?";Slytherin[1] = "A3";Slytherin[2] = "A3";Slytherin[3] = "A3";Slytherin[4] = "A3";Slytherin[5] = "A3";Slytherin[6] = "A3";Slytherin[7] = "A3";Slytherin[8] = "A3";Slytherin[9] = "A3";
+				Slytherin[0] = "3.Do you believe in power and the enforcement of it above all?";Slytherin[1] = "A3";Slytherin[2] = "A3";Slytherin[3] = "A3";Slytherin[4] = "A3";Slytherin[5] = "A3";Slytherin[6] = "A3";Slytherin[7] = "A3";Slytherin[8] = "A3";Slytherin[9] = "A3";
 				
-				HonneyBadger[0] = "4.Do you believe in comradary above all?";HonneyBadger[1] = "A4";HonneyBadger[2] = "A4";HonneyBadger[3] = "A4";HonneyBadger[4] = "A4";HonneyBadger[5] = "A4";HonneyBadger[6] = "A4";HonneyBadger[7] = "A4";HonneyBadger[8] = "A4";HonneyBadger[9] = "A4";
+				HonneyBadger[0] = "4.Do you believe in comradary and love above all?";HonneyBadger[1] = "A4";HonneyBadger[2] = "A4";HonneyBadger[3] = "A4";HonneyBadger[4] = "A4";HonneyBadger[5] = "A4";HonneyBadger[6] = "A4";HonneyBadger[7] = "A4";HonneyBadger[8] = "A4";HonneyBadger[9] = "A4";
 				
-				Variates[0] = "Do you believe in power above all?";Variates[1] = "A5";Variates[2] = "A5";Variates[3] = "A5";Variates[5] = "A5";Variates[6] = "A5";Variates[7] = "A5";Variates[8] = "A5";Variates[9] = "A5";
+				Variates[0] = "5.Do you believe in efficency towards a goal above all?";Variates[1] = "A5";Variates[2] = "A5";Variates[3] = "A5";Variates[5] = "A5";Variates[6] = "A5";Variates[7] = "A5";Variates[8] = "A5";Variates[9] = "A5";
 			
 				  //the text for the questions
 			    JTextArea G1 = new JTextArea(Gryphondor[section]);
-			    G1.setEditable(false);
-				JTextArea R1 = new JTextArea(RavenClaw[section]);
+			    G1.setEditable(false); 
+			    G1.setLineWrap(true);
+			    G1.setWrapStyleWord(true);
+				
+			    JTextArea R1 = new JTextArea(RavenClaw[section]);
 				R1.setEditable(false);
-				JTextArea S1 = new JTextArea(Slytherin[section]);
+				R1.setLineWrap(true);
+			    R1.setWrapStyleWord(true);
+				
+			    JTextArea S1 = new JTextArea(Slytherin[section]);
 				S1.setEditable(false);
-				JTextArea H1 = new JTextArea(HonneyBadger[section]);
+				S1.setLineWrap(true);
+			    S1.setWrapStyleWord(true);
+				
+			    JTextArea H1 = new JTextArea(HonneyBadger[section]);
 				H1.setEditable(false);
-				JTextArea V1 = new JTextArea(Variates[section]);
+				H1.setLineWrap(true);
+			    H1.setWrapStyleWord(true);
+				
+			    JTextArea V1 = new JTextArea(Variates[section]);
 				V1.setEditable(false);
+				V1.setLineWrap(true);
+			    V1.setWrapStyleWord(true);
 				   
 				questext.add(G1);
 				questext.add(R1);
@@ -128,6 +142,7 @@ public class quizFrame implements ActionListener{
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
 			   endValues.Gryphondor();
+			   endValues.counter();
 	        }
 	   });
 	    
@@ -136,6 +151,7 @@ public class quizFrame implements ActionListener{
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
 			   endValues.RavenClaw();
+			   endValues.counter();
 		   
 		   }
 	   });
@@ -145,6 +161,7 @@ public class quizFrame implements ActionListener{
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
 			   endValues.Slytherin();
+			   endValues.counter();
 	        }
 	   });
 	    
@@ -153,6 +170,7 @@ public class quizFrame implements ActionListener{
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
 			   endValues.HonneyBagger();
+			   endValues.counter();
 	        }
 	   });
 	    
@@ -161,7 +179,7 @@ public class quizFrame implements ActionListener{
 	        public void actionPerformed( ActionEvent e ) {
 	            // add Action
 			   endValues.Variants();
-			   
+			   endValues.counter();
 	        }
 	   });
 	    
