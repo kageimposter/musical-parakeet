@@ -17,15 +17,10 @@ import javax.swing.Box;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class quizFrame implements ActionListener{
-	
-	Toolkit ig = Toolkit.getDefaultToolkit();
-	
-	
-	
-	
 	
 	public quizFrame(String s){
 		
@@ -36,8 +31,6 @@ public class quizFrame implements ActionListener{
 		init.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		init.setTitle(s);
 		init.setBounds(40,40,400,400);
-		//Image tittleIcon = ig.getImage();
-		//init.setIconImage(tittleIcon);
 		int section = 0;
 		
 		
@@ -95,7 +88,7 @@ public class quizFrame implements ActionListener{
 	//set the fonts 
 	    Font font = null;
 			try {
-				font = Font.createFont(Font.TRUETYPE_FONT, new File("Akula.ttf")).deriveFont(12f);
+				font = Font.createFont(Font.TRUETYPE_FONT, new File("Akula.ttf")).deriveFont(28f);
 			} catch (FontFormatException | IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -104,6 +97,7 @@ public class quizFrame implements ActionListener{
 	    question.setLineWrap(true);
 	    question.setWrapStyleWord(true);
 	    
+	   
 	    
 
 	    //buttons with options   
